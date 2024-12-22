@@ -8,7 +8,6 @@ const cookieLvl = document.querySelector("#cookieLvl");
 const timerLvl = document.querySelector("#timerLvl");
 
 let mainvalue = 0;
-let store01 = 0;
 let store02 = 0;
 
 save.addEventListener("click", function () {
@@ -25,6 +24,8 @@ async function cookieAPI() {
   const data = await response.json();
   console.log(data);
 
+  timerLvl.textContent = `Current: ${data[store02].name} Upgrade Cost: ${data[store02].cost}`;
+
   function startTimer() {
     const cookieTimer = setInterval(function () {
       mainvalue += data[store02].increase;
@@ -34,16 +35,21 @@ async function cookieAPI() {
 
   timerLvl.addEventListener("click", function () {
     if (mainvalue > data[store02].cost - 1) {
+      mainvalue -= data[store02].cost;
       store02 = data[store02].id++;
       timerLvl.textContent = `Current: ${data[store02].name} Upgrade Cost: ${data[store02].cost}`;
       console.log(store02);
     }
   });
 
+  let started = false;
+
   start.addEventListener("click", function () {
     startTimer();
     start.style.display = "none";
     load.style.display = "none";
+    started = true;
+    console.log(started);
   });
 
   load.addEventListener("click", function () {
@@ -55,6 +61,15 @@ async function cookieAPI() {
     startTimer();
     start.style.display = "none";
     load.style.display = "none";
+    started = true;
+    console.log(started);
+  });
+
+  mCookieBtn.addEventListener("click", function () {
+    if ((started = true)) {
+      mainvalue += data[store02].increase;
+      mCount.textContent = mainvalue;
+    }
   });
 }
 
