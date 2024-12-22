@@ -11,6 +11,12 @@ let mainvalue = 0;
 let store01 = 0;
 let store02 = 0;
 
+save.addEventListener("click", function () {
+  localStorage.setItem("mainvalue", mainvalue);
+  localStorage.setItem("store01", store01);
+  localStorage.setItem("store02", store02);
+});
+
 async function cookieAPI() {
   const response = await fetch(
     "https://cookie-upgrade-api.vercel.app/api/upgrades"
@@ -26,9 +32,29 @@ async function cookieAPI() {
     }, 1000);
   }
 
+  timerLvl.addEventListener("click", function () {
+    if (mainvalue > data[store02].cost - 1) {
+      store02 = data[store02].id++;
+      timerLvl.textContent = `Current: ${data[store02].name} Upgrade Cost: ${data[store02].cost}`;
+      console.log(store02);
+    }
+  });
+
   start.addEventListener("click", function () {
     startTimer();
     start.style.display = "none";
+    load.style.display = "none";
+  });
+
+  load.addEventListener("click", function () {
+    mainvalueret = localStorage.getItem("mainvalue");
+    mainvalue = JSON.parse(mainvalueret);
+    store01 = localStorage.getItem("store01");
+    store02 = localStorage.getItem("store02");
+    timerLvl.textContent = `Current: ${data[store02].name} Upgrade Cost: ${data[store02].cost}`;
+    startTimer();
+    start.style.display = "none";
+    load.style.display = "none";
   });
 }
 
