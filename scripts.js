@@ -4,7 +4,6 @@ const mCount = document.querySelector("#mainCount");
 const save = document.querySelector("#save");
 const load = document.querySelector("#load");
 const start = document.querySelector("#start");
-const cookieLvl = document.querySelector("#cookieLvl");
 const timerLvl = document.querySelector("#timerLvl");
 
 let mainvalue = 0;
@@ -43,6 +42,7 @@ async function cookieAPI() {
   });
 
   let started = false;
+  console.log(started);
 
   start.addEventListener("click", function () {
     startTimer();
@@ -66,7 +66,7 @@ async function cookieAPI() {
   });
 
   mCookieBtn.addEventListener("click", function () {
-    if ((started = true)) {
+    if (started === true) {
       mainvalue += data[store02].increase;
       mCount.textContent = mainvalue;
     }
