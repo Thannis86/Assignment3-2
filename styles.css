@@ -2,6 +2,7 @@ body {
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-template-rows: 10% 10% 60% 10% 10%;
+  font-size: x-large;
 }
 
 h1 {
@@ -17,4 +18,51 @@ h1 {
   grid-area: 3 / 2 / 4 / 3;
   justify-self: center;
   align-self: baseline;
+  width: 524px;
+  height: 524px;
+}
+
+#start {
+  display: flex;
+  grid-area: 2 / 2 / 3 / 3;
+  font-size: x-large;
+  justify-self: center;
+  align-self: baseline;
+  align-items: center;
+  text-align: center;
+}
+
+#save {
+  display: flex;
+  grid-area: 3 / 3 /4 /4;
+  align-self: flex-start;
+  width: 100px;
+  height: 100px;
+  font-size: x-large;
+  text-align: center;
+}
+#load {
+  display: flex;
+  grid-area: 3 / 3 /4 /4;
+  align-self: flex-end;
+  width: 100px;
+  height: 100px;
+  font-size: x-large;
+  text-align: center;
+}
+
+#timerLvl {
+  display: flex;
+  grid-area: 2 / 1/3/2;
+  width: 300px;
+  height: 100px;
+  font-size: x-large;
+  text-align: center;
+}
+
+#mainCount {
+  display: flex;
+  grid-area: 3 / 1 / 4 /2;
+  align-items: center;
+  justify-content: center;
 }

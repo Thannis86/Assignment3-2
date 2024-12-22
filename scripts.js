@@ -28,7 +28,7 @@ async function cookieAPI() {
   function startTimer() {
     const cookieTimer = setInterval(function () {
       mainvalue += data[store02].increase;
-      mCount.textContent = mainvalue;
+      mCount.textContent = `Current Cookies: ${mainvalue}`;
     }, 1000);
   }
 
@@ -63,12 +63,13 @@ async function cookieAPI() {
     load.style.display = "none";
     started = true;
     console.log(started);
+    mCount.textContent = `Current Cookies: ${mainvalue}`;
   });
 
   mCookieBtn.addEventListener("click", function () {
     if (started === true) {
       mainvalue += data[store02].increase;
-      mCount.textContent = mainvalue;
+      mCount.textContent = `Current Cookies: ${mainvalue}`;
     }
   });
 }

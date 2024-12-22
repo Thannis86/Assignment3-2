@@ -1,1 +1,1 @@
-# Assignment3-2
+I didn't think I'd get this sorted in time, but I had the javascript finished prior to the submission time, it was just the styling that needed updating. Having created it once, I actually found it extremely quick to recreate even when implimenting the array. I'm just disappointed I didn't reach the stretch goals due.
